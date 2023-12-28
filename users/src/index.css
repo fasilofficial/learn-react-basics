@@ -1,0 +1,46 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  width: 50%;
+  padding: 10px;
+  margin: 2em auto;
+  border-radius: 12px;
+  height: 110px;
+}
+
+.btn {
+  padding: 5px 15px;
+  margin: 10px;
+  font-size: 1.5em;
+  border-radius: 12px;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  transition: all 300ms ease-in-out;
+}
+
+.user {
+  width: 50%;
+  padding: 10px;
+  background: #f0f0f0;
+  margin: 2em auto;
+  border-radius: 12px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error {
+  color: red;
+}

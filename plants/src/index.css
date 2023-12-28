@@ -1,0 +1,39 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #f0f0f2;
+}
+
+.title {
+  text-align: center;
+  font-size: 3em;
+  color: rgb(2, 88, 2);
+}
+
+.plants {
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.plant_card {
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #eaeaec;
+}
+
+.plant_image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+.scientific_name {
+  opacity: .5;
+  font-style: italic;
+
+}
