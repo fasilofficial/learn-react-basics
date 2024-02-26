@@ -25,7 +25,7 @@ function App() {
       <main>
         <button
           className="counter-btn"
-          style={count == 0 ? { opacity: 0 } : {}}
+          disabled={count === 0 ? true : false}
           onClick={() => setCount((prevCount) => prevCount - 1)}
         >
           -
