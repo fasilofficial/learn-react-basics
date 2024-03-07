@@ -1,7 +1,13 @@
-import TodoWrapper from "./components/TodoWrapper";
+import TodoContainer from "./components/TodoContainer";
+import ToggleTheme from "./components/ToggleTheme";
 
 const App = () => {
-  return <TodoWrapper />;
+  return (
+    <main className="">
+      <ToggleTheme />
+      <TodoContainer />
+    </main>
+  );
 };
 
 export default App;

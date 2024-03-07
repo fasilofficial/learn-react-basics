@@ -4,35 +4,34 @@ import { v4 as uuidv4 } from "uuid";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
-const TodoWrapper = () => {
-  // useRef
+const TodoContainer = () => {
   const inputRef = useRef();
+  const [input, setInput] = useState("");
 
-  // useState
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
-  const [input, setInput] = useState("");
 
-  // useEffect
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  // handlers
   const handleInputChange = () => {
     setInput(inputRef.current.value);
   };
+
   const handleAddTodo = () => {
     const name = inputRef.current.value;
     if (name == "") return;
     setTodos([...todos, { id: uuidv4(), name, completed: false }]);
     setInput("");
   };
+
   const handleKeyPress = (e) => {
     if (e.code != "Enter") return;
     handleAddTodo();
   };
+
   const handleToggle = (id) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -40,16 +39,18 @@ const TodoWrapper = () => {
       )
     );
   };
+
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id != id));
   };
+
   const handleClearCompleted = () => {
     setTodos(todos.filter((todo) => todo.completed == false));
   };
 
   return (
-    <div>
-      <h1>Things TO-DO.</h1>
+    <div className="p-5 shadow-md rounded-md mx-auto mt-10 max-w-lg dark:bg-gray-700 dark:text-gray-100">
+      <h1 className="font-bold text-blue-500 text-3xl mb-4">Do it.</h1>
       <TodoForm
         inputRef={inputRef}
         handleInputChange={handleInputChange}
@@ -64,7 +65,10 @@ const TodoWrapper = () => {
         setTodos={setTodos}
       />
       {todos.length > 0 ? (
-        <button className="clear_btn" onClick={handleClearCompleted}>
+        <button
+          className="py-1 px-2 rounded-md bg-blue-500 text-white"
+          onClick={handleClearCompleted}
+        >
           Clear Completed
         </button>
       ) : (
@@ -74,4 +78,4 @@ const TodoWrapper = () => {
   );
 };
 
-export default TodoWrapper;
+export default TodoContainer;
